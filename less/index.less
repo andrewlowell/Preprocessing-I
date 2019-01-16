@@ -64,16 +64,26 @@ html {
 	font-size: 62.5%;
 }
 body {
-	line-height: 1.4;
+	line-height: 1.5;
+	font-family: 'Oswald', sans-serif;
 }
 h1 {
 	font-size: 4rem;
+	font-family: 'Roboto Slab', serif;
 }
 h2 {
-	font-size: 2.5rem;
+	font-size: 2.4rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+h3 {
+	font-size: 1.7rem;
+	font-weight: 650;
+	margin-top: 0.2em;
 }
 p {
-	font-size: 1.8rem;
+	font-size: 1.7rem;
 }
 
 // *** Variables and mixins
@@ -85,21 +95,10 @@ p {
 	justify-content: @justify;
 	align-items: @align;
 }
-.text-center {
+
+// *** Utility classes
+.text-center() {
 	text-align: center;
-}
-.testing() {
-	border: 1px solid red;
-}
-// *** These two classes set up the middle dotted line present in some sections
-.left-half {
-	width: 50%;
-	padding-right: 5%;
-	border-right: 2px dotted black;
-	text-align: right;
-}
-.right-half {
-	margin-left: 5%;
 }
 
 // *** Main HTML-matching structure
@@ -113,13 +112,36 @@ p {
 	.row {
 		width: 100%;
 		margin: 2rem 0;
+
+		// *** These two classes set up the middle dotted line present in some sections
+		.left-half {
+			min-width: 50%;
+			padding-right: 5%;
+			border-right: 2px dotted black;
+			text-align: right;
+			@media (max-width: 500px) {
+				min-width: none;
+				border-right: none;
+				text-align: center;
+			}
+		}
+		.right-half {
+			min-width: 50%;
+			margin-left: 5%;
+			@media (max-width: 500px) {
+				min-width: none;
+			}
+		}
 	}
 
 	span {
 		font-size: 3rem;
+		margin: 0.2rem 0;
+		.text-center;
 	}
 
 	.title-header {
+		margin-bottom: 5rem;
 		.flexible(row, flex-start, center);
 		width: 100%;
 	
@@ -134,10 +156,39 @@ p {
 			font-size: 8rem;
 			width: 20%;
 		}
+
+		@media (max-width: 500px) {
+			.flexible(column, center, center);
+		}
 	}
 
 	.intro-contact, .education-experience, .skills-interests {
-		.flexible(row, flex-start, flex-start)
+		.flexible(row, flex-start, flex-start);
+		@media (max-width: 500px) {
+			.flexible(column, flex-start, center);
+			text-align: center;
+		}
+	}
+
+	.intro-contact {
+		.contact {
+			.flexible(row, flex-start, flex-start);
+			img {
+				margin-right: 1.8rem;
+				border-radius: 100%;
+				max-width: 10rem;
+				height: auto;
+			}
+			div nav a {
+				margin: 0 0.2rem;
+			}
+			div nav .fab {
+				color: @main-color;
+			}
+			@media (max-width: 500px) {
+				.flexible(column, flex-start, center)
+			}
+		}
 	}
 
 }

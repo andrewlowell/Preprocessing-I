@@ -138,28 +138,26 @@ html {
   font-size: 62.5%;
 }
 body {
-  line-height: 1.4;
+  line-height: 1.5;
+  font-family: 'Oswald', sans-serif;
 }
 h1 {
   font-size: 4rem;
+  font-family: 'Roboto Slab', serif;
 }
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+h3 {
+  font-size: 1.7rem;
+  font-weight: 650;
+  margin-top: 0.2em;
 }
 p {
-  font-size: 1.8rem;
-}
-.text-center {
-  text-align: center;
-}
-.left-half {
-  width: 50%;
-  padding-right: 5%;
-  border-right: 2px dotted black;
-  text-align: right;
-}
-.right-half {
-  margin-left: 5%;
+  font-size: 1.7rem;
 }
 .container {
   max-width: 900px;
@@ -175,10 +173,35 @@ p {
   width: 100%;
   margin: 2rem 0;
 }
+.container .row .left-half {
+  min-width: 50%;
+  padding-right: 5%;
+  border-right: 2px dotted black;
+  text-align: right;
+}
+@media (max-width: 500px) {
+  .container .row .left-half {
+    min-width: none;
+    border-right: none;
+    text-align: center;
+  }
+}
+.container .row .right-half {
+  min-width: 50%;
+  margin-left: 5%;
+}
+@media (max-width: 500px) {
+  .container .row .right-half {
+    min-width: none;
+  }
+}
 .container span {
   font-size: 3rem;
+  margin: 0.2rem 0;
+  text-align: center;
 }
 .container .title-header {
+  margin-bottom: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -196,6 +219,14 @@ p {
   font-size: 8rem;
   width: 20%;
 }
+@media (max-width: 500px) {
+  .container .title-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .container .intro-contact,
 .container .education-experience,
 .container .skills-interests {
@@ -203,4 +234,41 @@ p {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+}
+@media (max-width: 500px) {
+  .container .intro-contact,
+  .container .education-experience,
+  .container .skills-interests {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+}
+.container .intro-contact .contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .intro-contact .contact img {
+  margin-right: 1.8rem;
+  border-radius: 100%;
+  max-width: 10rem;
+  height: auto;
+}
+.container .intro-contact .contact div nav a {
+  margin: 0 0.2rem;
+}
+.container .intro-contact .contact div nav .fab {
+  color: lightblue;
+}
+@media (max-width: 500px) {
+  .container .intro-contact .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
